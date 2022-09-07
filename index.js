@@ -5,7 +5,7 @@ const choices = ['rock', 'paper', 'scissors'];
 function getComputerChoice() {
     const rand =  Math.random() * choices.length;
     const randomIndex = Math.floor(rand);
-    return choices[randomIndex]
+    return choices[randomIndex];
 }
 
 function playRound(playerSelection, computerSelection) {
