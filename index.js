@@ -1,5 +1,25 @@
 console.log("Page Loaded");
 const choices = ['rock', 'paper', 'scissors'];
+const rockBtn = document.querySelector('#rock');
+const paperBtn = document.querySelector('#paper');
+const scissorsBtn = document.querySelector('#scissors');
+
+let playerScore = 0;
+let computerScore = 0;
+
+document.querySelectorAll('button').forEach(button => {
+    button.addEventListener('click', (e) => {
+        const playerChoice = button.innerText.toLowerCase();
+        const computerChoice = getComputerChoice();
+        const round = playRound(playerChoice, computerChoice);
+        console.log(round);
+        if (round.startsWith('You Win')) {
+            playerScore++;
+        } else {
+            computerScore++;
+        }
+    });
+});
 
 
 function getComputerChoice() {
@@ -35,25 +55,5 @@ function playRound(playerSelection, computerSelection) {
     }
     return result;
 }
-
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-
-    for (let i = 0; i < 5; i++) {
-        const playerChoice = prompt("Rock, Paper, Scissors?").toLowerCase();
-        const computerChoice = getComputerChoice();
-        const round = playRound(playerChoice, computerChoice);
-        console.log(round);
-        if (round.startsWith('You Win')) {
-            playerScore++;
-        } else {
-            computerScore++;
-        }
-    }
-    console.log(`Game Over. Player Score: ${playerScore}. Computer Score: ${computerScore}`)
-}
-
-game()
 
 
